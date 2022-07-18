@@ -7,14 +7,17 @@
         "php": ">=8.1",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "opensearch-project/opensearch-php": "^2.0",
+        "shyim/opensearch-dsl": "dev-main",
         "symfony/console": "6.1.*",
         "symfony/dotenv": "6.1.*",
         "symfony/flex": "^2",
         "symfony/framework-bundle": "6.1.*",
         "symfony/runtime": "6.1.*",
-        "symfony/yaml": "6.1.*"
-    },
-    "require-dev": {
+        "symfony/twig-bundle": "6.1.*",
+        "symfony/yaml": "6.1.*",
+        "twig/extra-bundle": "^2.12|^3.0",
+        "twig/twig": "^2.12|^3.0"
     },
     "config": {
         "allow-plugins": {
@@ -67,5 +70,11 @@
             "allow-contrib": false,
             "require": "6.1.*"
         }
-    }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/shyim/opensearch-php-dsl.git"
+        }
+    ]
 }
