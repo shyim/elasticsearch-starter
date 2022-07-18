@@ -3,11 +3,6 @@
 namespace App\Controller;
 
 use OpenSearch\Client;
-use OpenSearchDSL\Aggregation\Bucketing\TermsAggregation;
-use OpenSearchDSL\Query\FullText\MatchQuery;
-use OpenSearchDSL\Query\TermLevel\TermQuery;
-use OpenSearchDSL\Query\TermLevel\TermsQuery;
-use OpenSearchDSL\Search;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -34,40 +29,44 @@ class IndexController extends AbstractController
         $facets = $request->request->all();
         unset($facets['term']);
 
-
-        $search = new Search();
-        $search->addQuery(new MatchQuery('title', $term));
-
-        if (!empty($facets)) {
-            $search->addPostFilter(new TermsQuery('genres', array_keys($facets)));
-        }
-
-        $search->addAggregation(new TermsAggregation('genres', 'genres'));
-
-        $searchResult = $this->client->search([
-            'index' => 'movies',
-            'body' => $search->toArray()
-        ]);
+        // @todo: Search the Elasticsearch index for the term and facets genre
 
         $result = [
             'facets' => [
                 [
-                    'name' => 'genres',
-                    'terms' => [],
-                ],
+                    'name' => 'genre',
+                    'terms' => [
+                        [
+                            'term' => 'action',
+                            'count' => 1
+                        ],
+                        [
+                            'term' => 'comedy',
+                            'count' => 1
+                        ],
+                        [
+                            'term' => 'drama',
+                            'count' => 1
+                        ],
+                        [
+                            'term' => 'horror',
+                            'count' => 1
+                        ],
+                        [
+                            'term' => 'thriller',
+                            'count' => 1
+                        ]
+                    ]
+                ]
             ],
+            'results' => [
+                [
+                    'id' => '1',
+                    'title' => 'Ariel',
+                    'overview' => 'Taisto Kasurinen is a Finnish coal miner whose father has just committed suicide and who is framed for a crime he did',
+                ],
+            ]
         ];
-
-        foreach ($searchResult['hits']['hits'] as $item) {
-            $result['results'][] = $item['_source'];
-        }
-
-        foreach ($searchResult['aggregations']['genres']['buckets'] as $item) {
-            $result['facets'][0]['terms'][] = [
-                'term' => $item['key'],
-                'count' => $item['doc_count']
-            ];
-        }
 
         return new JsonResponse($result);
     }

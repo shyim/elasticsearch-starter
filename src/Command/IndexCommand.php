@@ -25,38 +25,7 @@ class IndexCommand extends Command
     {
         $movies = json_decode(file_get_contents('movies.json'), true, 512, JSON_THROW_ON_ERROR);
 
-        try {
-            $this->client->indices()->delete(['index' => 'movies']);
-        } catch (\Throwable $e) {
-
-        }
-
-        $this->client->indices()->create([
-            'index' => 'movies',
-        ]);
-
-        $this->client->indices()->putMapping([
-            'index' => 'movies',
-            'body' => [
-                'properties' => [
-                    'genres' => [
-                        'type' => 'keyword'
-                    ],
-                ]
-            ],
-        ]);
-
-        $documents = [];
-
-        foreach ($movies as $movie) {
-            $documents[] = ['index' => ['_id' => $movie['id']]];
-            $documents[] = $movie;
-        }
-
-        $this->client->bulk([
-            'index' => 'movies',
-            'body' => $documents
-        ]);
+        // @todo: Index the movies to the Elasticsearch index
 
         return self::SUCCESS;
     }
