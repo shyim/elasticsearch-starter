@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "45f6cd52fcbde00a95c6c5f2b679aa8c",
+    "content-hash": "8a667d41ef7df7a82442709d8a55f1df",
     "packages": [
         {
             "name": "ezimuel/guzzlestreams",
@@ -462,17 +462,17 @@
             "time": "2022-02-11T10:27:51+00:00"
         },
         {
-            "name": "shyim/opensearch-dsl",
-            "version": "dev-main",
+            "name": "shyim/opensearch-php-dsl",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/shyim/opensearch-php-dsl.git",
-                "reference": "041b58e1afa5206d04c48004d95b885ef82d3e7c"
+                "reference": "326c5a139d5b06ffd85bee31267445737ad32f0e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/shyim/opensearch-php-dsl/zipball/041b58e1afa5206d04c48004d95b885ef82d3e7c",
-                "reference": "041b58e1afa5206d04c48004d95b885ef82d3e7c",
+                "url": "https://api.github.com/repos/shyim/opensearch-php-dsl/zipball/326c5a139d5b06ffd85bee31267445737ad32f0e",
+                "reference": "326c5a139d5b06ffd85bee31267445737ad32f0e",
                 "shasum": ""
             },
             "require": {
@@ -490,29 +490,13 @@
                 "elasticsearch/elasticsearch": "Client library querying with the actual server",
                 "opensearch-project/opensearch-php": "Client library querying with the actual server"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
                     "OpenSearchDSL\\": "src/"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "OpenSearchDSL\\Tests\\": "tests/"
-                }
-            },
-            "scripts": {
-                "tests": [
-                    "phpunit"
-                ],
-                "phpstan": [
-                    "phpstan analyse"
-                ],
-                "fix-code-style": [
-                    "php-cs-fixer fix"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -529,10 +513,10 @@
             "description": "OpenSearch/Elasticsearch DSL library",
             "homepage": "https://github.com/shyim/opensearch-dsl",
             "support": {
-                "source": "https://github.com/shyim/opensearch-php-dsl/tree/main",
-                "issues": "https://github.com/shyim/opensearch-php-dsl/issues"
+                "issues": "https://github.com/shyim/opensearch-php-dsl/issues",
+                "source": "https://github.com/shyim/opensearch-php-dsl/tree/1.0.0"
             },
-            "time": "2022-07-06T20:43:37+00:00"
+            "time": "2022-07-22T12:20:43+00:00"
         },
         {
             "name": "symfony/cache",
@@ -3053,16 +3037,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v3.4.1",
+            "version": "v3.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "e939eae92386b69b49cfa4599dd9bead6bf4a342"
+                "reference": "c38fd6b0b7f370c198db91ffd02e23b517426b58"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/e939eae92386b69b49cfa4599dd9bead6bf4a342",
-                "reference": "e939eae92386b69b49cfa4599dd9bead6bf4a342",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/c38fd6b0b7f370c198db91ffd02e23b517426b58",
+                "reference": "c38fd6b0b7f370c198db91ffd02e23b517426b58",
                 "shasum": ""
             },
             "require": {
@@ -3113,7 +3097,7 @@
             ],
             "support": {
                 "issues": "https://github.com/twigphp/Twig/issues",
-                "source": "https://github.com/twigphp/Twig/tree/v3.4.1"
+                "source": "https://github.com/twigphp/Twig/tree/v3.4.3"
             },
             "funding": [
                 {
@@ -3125,15 +3109,13 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-05-17T05:48:52+00:00"
+            "time": "2022-09-28T08:42:51+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "shyim/opensearch-dsl": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
